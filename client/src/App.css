@@ -1,0 +1,12 @@
+.todo { display: flex; gap: 12px; align-items: center; list-style: none; }
+.todo.done h3, .todo.done p { text-decoration: line-through; opacity: 0.5; }
+.error-banner {
+  display: flex;
+  justify-content: space-between;
+  background: #fdecea;
+  color: #b3261e;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+.error-banner button { background: none; border: none; cursor: pointer; font-size: 1.2rem; }
