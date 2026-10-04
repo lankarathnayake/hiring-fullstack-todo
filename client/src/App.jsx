@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div>
-      <h1>Todos</h1>
+      <h1 class="app-title">Todos</h1>
       <ErrorBanner message={actionError} onDismiss={dismissActionError} />
       <TodoForm onAdd={addTodo} />
       <TodoList todos={todos} onToggle={toggleTodo} onDelete={removeTodo} onEdit={editTodo} />
