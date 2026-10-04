@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getTodos, createTodo, toggleDone, deleteTodo } from '../api/todos';
+import { getTodos, createTodo, toggleDone, deleteTodo, updateTodo } from '../api/todos';
 
 export default function useTodos() {
   const [todos, setTodos] = useState([]);
@@ -41,5 +41,20 @@ export default function useTodos() {
     }
   };
 
-  return { todos, loading, error, actionError, dismissActionError: () => setActionError(''), addTodo, toggleTodo, removeTodo };
+  const editTodo = async (id, data) => {
+    const updated = await updateTodo(id, data);
+    setTodos((prev) => prev.map((t) => (t._id === id ? updated : t)));
+  };
+
+  return { 
+    todos, 
+    loading, 
+    error, 
+    actionError, 
+    dismissActionError: () => setActionError(''), 
+    addTodo, 
+    toggleTodo, 
+    removeTodo,
+    editTodo 
+  };
 }
